@@ -18,16 +18,27 @@ def pegar_cotacoes():
     BTC: {cotacao_btc}    
     '''
 
-    print(texto)
+    conteudo["text"] = texto
 
-pegar_cotacoes()
 
 #INICIAL - Criando a janela
 janela = Tk()
 
 #Configura a janela
+#Define o título da janela
 janela.title("Cotação Atual das Moedas")
+#define o tanho da janela
+janela.geometry("400x400")
 
+#texto a ser exibido
+texto = Label(janela, text="Clique no botão para ver as cotações")
+texto.grid(column=0, row=0, padx=10, pady=10)
+#Botão a ser exibido
+btn = Button(janela, text="Buscar cotações de Dóllar/Euro/BTC", command=pegar_cotacoes)
+btn.grid(column=0,row=1,padx=10, pady=10)
+#conteúdo dinamico 
+conteudo = Label(janela,text="")
+conteudo.grid(column=0, row=2,padx=10, pady=10)
 
 #FINAL - Não deixa fechar a janela
 janela.mainloop()
